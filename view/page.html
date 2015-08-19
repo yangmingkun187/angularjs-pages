@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="/libs/angular.min.js"></script>
+    <script src="/js/controller.js"></script>
+    <script src="/js/service.js"></script>
+</head>
+<body>
+<ul class="pagination" ng-show="totalPage>1">
+    <li ng-class="{true:'active'}[currentPage==1]">
+        <a href="javascript:void(0)" ng-click="currentPage=1;load()">首页</a>
+    </li>
+    <li ng-class="{true:'disabled'}[currentPage==1]">
+        <a href="javascript:void(0);" ng-click="prev()">上一页</a>
+    </li>
+    <li ng-repeat="page in pages">
+        <a href="javascript:void(0);" ng-click="loadPage(page)">{{ page }}</a>
+    </li>
+    <li ng-class="{true:'disabled'}[currentPage==totalPage]">
+        <a href="javascript:void(0);" ng-click="next()">下一页</a>
+    </li>
+    <li ng-class="{true:'active'}[currentPage==totalPage]">
+        <a href="javascript:void(0)" ng-click="currentPage=totalPage;load()">末页</a>
+    </li>
+</ul>
+</body>
+</html>
